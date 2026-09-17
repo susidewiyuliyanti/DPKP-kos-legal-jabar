@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KOS LEGAL JABAR v2 - Bebas PBJT - UU HKPD 2022</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head><body class="bg-[#F0F4F8]">
+<header class="bg-[#0B3D91] text-white px-4 py-3 flex justify-between items-center">
+<div class="flex gap-2 items-center"><div class="bg-white text-[#0B3D91] w-9 h-9 rounded font-black flex items-center justify-center">KJ</div><div><b>KOS LEGAL JABAR v2</b><div class="text-[10px] opacity-70">UU HKPD 1/2022 • Bebas PBJT • PPh <500jt GRATIS</div></div></div>
+<div class="text-[10px] bg-green-500 px-3 py-1 rounded-full">Pajak Update 2022</div>
+</header>
+<div class="max-w-6xl mx-auto p-4 grid grid-cols-12 gap-4">
+<div class="col-span-12 lg:col-span-4">
+<div class="bg-white rounded-2xl p-4 shadow-sm border-l-4 border-green-500">
+<h3 class="font-bold text-sm">Status Pajak Kos Anda</h3>
+<div class="mt-3 bg-green-50 border border-green-200 rounded-xl p-3">
+<div class="font-bold text-green-800 text-sm">BEBAS PBJT</div>
+<div class="text-[11px] text-green-700 mt-1">UU 1/2022: Kos TIDAK LAGI objek PBJT/Pajak Hotel. Tidak ada lagi 5%/7%/10% per bulan ke Bapenda.</div>
+</div>
+<div class="mt-4">
+<label class="text-[11px] font-bold">Kalkulator PPh UMKM</label>
+<div class="grid grid-cols-2 gap-2 mt-2">
+<input id="jmlKamar" type="number" value="15" class="border rounded-lg px-3 py-2 text-sm" placeholder="Jml Kamar">
+<input id="harga" type="number" value="1200000" class="border rounded-lg px-3 py-2 text-sm" placeholder="Harga Sewa">
+</div>
+<input id="terisi" type="number" value="12" class="w-full border rounded-lg px-3 py-2 text-sm mt-2" placeholder="Kamar Terisi">
+<button onclick="hitung()" class="w-full mt-2 bg-[#0B3D91] text-white py-2 rounded-full text-sm font-bold">Hitung Pajak</button>
+<div id="hasil" class="mt-3 bg-[#0B3D91] text-white rounded-xl p-3 text-xs"></div>
+</div>
+</div>
+<div class="bg-white rounded-2xl p-4 shadow-sm mt-4">
+<h3 class="font-bold text-sm">Daftar Kos - Tambah Cabang Terus</h3>
+<input id="namaKos" placeholder="Nama Kos Baru, misal Cikutra" class="w-full border rounded-lg px-3 py-2 text-sm mt-2">
+<input id="pemilik" placeholder="Nama Pemilik" class="w-full border rounded-lg px-3 py-2 text-sm mt-2">
+<button onclick="tambah()" class="w-full mt-2 bg-green-600 text-white py-2 rounded-full text-sm font-bold">+ Tambah Cabang (Bisa Terus)</button>
+<div id="listKos" class="mt-3 space-y-2 text-xs"></div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-8">
+<div class="grid grid-cols-3 gap-3">
+<div class="bg-white rounded-2xl p-4 shadow-sm"><div class="text-[11px] text-gray-500">TOTAL KOS</div><div class="text-2xl font-black" id="total">0</div></div>
+<div class="bg-white rounded-2xl p-4 shadow-sm"><div class="text-[11px] text-gray-500">OMZET/THN</div><div class="text-lg font-black text-green-600" id="omzet">Rp 0</div></div>
+<div class="bg-white rounded-2xl p-4 shadow-sm"><div class="text-[11px] text-gray-500">GRATIS PPh</div><div class="text-2xl font-black text-green-600" id="gratis">0</div></div>
+</div>
+<div class="bg-white rounded-2xl p-4 shadow-sm mt-4">
+<h3 class="font-bold text-sm">Aturan Pajak 2022 (Benar)</h3>
+<table class="w-full text-[11px] mt-3 border"><thead class="bg-gray-100"><tr><th class="p-2 text-left">Omzet Tahunan</th><th class="p-2">Status</th><th class="p-2">Bayar</th></tr></thead>
+<tbody><tr class="border-t"><td class="p-2"><500jt Orang Pribadi</td><td class="p-2"><span class="bg-green-100 text-green-700 px-2 py-1 rounded-full">GRATIS 0%</span></td><td class="p-2">Lapor SPT saja</td></tr>
+<tr class="border-t"><td class="p-2">500jt-4,8M</td><td class="p-2"><span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full">PPh 0,5%</span></td><td class="p-2">DJP tgl 15</td></tr>
+<tr class="border-t bg-red-50"><td class="p-2" colspan="3">Kos TIDAK KENA PBJT 10% lagi sejak UU 1/2022. Jika ada yang nagih 5%/7% bulanan = aturan lama Perda 20/2011 dicabut.</td></tr>
+</tbody></table>
+</div>
+<div class="bg-white rounded-2xl p-4 shadow-sm mt-4">
+<h3 class="font-bold text-sm">Data Kos (Bisa Tambah Terus)</h3>
+<table class="w-full text-xs mt-3"><thead class="text-gray-400"><tr><th class="text-left">Nama Kos</th><th>Pemilik</th><th>Kamar</th><th>Omzet/Thn</th><th>PPh</th><th>Aksi</th></tr></thead><tbody id="table"></tbody></table>
+</div>
+</div>
+</div>
+<script>
+let data=JSON.parse(localStorage.getItem('KOS_V2')||'[]');
+if(data.length==0){data=[{nama:'Kos Berkah Dago',pemilik:'Owner 1',kamar:12,terisi:10,harga:1500000},{nama:'Kos Berkah Dipatiukur',pemilik:'Owner 1',kamar:10,terisi:8,harga:1200000},{nama:'Kos Berkah Buah Batu',pemilik:'Owner 1',kamar:15,terisi:12,harga:1000000}];save();}
+function save(){localStorage.setItem('KOS_V2',JSON.stringify(data));render();}
+function pph(om){if(om<500000000)return{status:'GRATIS',pajak:0,color:'green'};if(om<=4800000000)return{status:'0,5%',pajak:om*0.005,color:'blue'};return{status:'Normal',pajak:0,color:'orange'};}
+function hitung(){let j=parseInt(document.getElementById('jmlKamar').value||0);let hr=parseInt(document.getElementById('harga').value||0);let t=parseInt(document.getElementById('terisi').value||0);let bln=t*hr;let thn=bln*12;let pp=pph(thn);document.getElementById('hasil').innerHTML=`Omzet Bln: Rp ${bln.toLocaleString('id-ID')}<br>Thn: <b>Rp ${thn.toLocaleString('id-ID')}</b><br><br>Status: <span class="bg-white text-[#0B3D91] px-2 py-1 rounded-full font-bold">${pp.status}</span><br>${pp.pajak>0?`Bayar Rp ${pp.pajak.toLocaleString('id-ID')}/thn`:'Tidak bayar, cukup lapor SPT'}`;}
+function tambah(){let n=document.getElementById('namaKos').value;if(!n)return alert('Isi nama');let p=document.getElementById('pemilik').value||'Owner';let jk=parseInt(document.getElementById('jmlKamar').value||10);let ter=parseInt(document.getElementById('terisi').value||0);let hr=parseInt(document.getElementById('harga').value||1000000);data.push({nama:n,pemilik:p,kamar:jk,terisi:ter,harga:hr});save();document.getElementById('namaKos').value='';}
+function render(){document.getElementById('total').innerText=data.length;let tot=data.reduce((s,k)=>s+(k.terisi*k.harga*12),0);document.getElementById('omzet').innerText='Rp '+(tot/1000000).toFixed(0)+'jt';let gr=data.filter(k=>(k.terisi*k.harga*12)<500000000).length;document.getElementById('gratis').innerText=gr;document.getElementById('table').innerHTML=data.map((k,i)=>{let om=k.terisi*k.harga*12;let pp=pph(om);return `<tr class="border-b"><td class="py-2 font-bold">${k.nama}</td><td>${k.pemilik}</td><td>${k.terisi}/${k.kamar}</td><td>${(om/1000000).toFixed(0)}jt</td><td><span class="px-2 py-1 rounded-full text-[10px] bg-${pp.color}-100">${pp.status}</span></td><td><button onclick="data.splice(${i},1);save()" class="text-red-500">Hapus</button></td></tr>`}).join('');document.getElementById('listKos').innerHTML=data.map(k=>`<div class="bg-gray-50 p-2 rounded-lg flex justify-between"><div><div class="font-bold">${k.nama}</div><div class="text-[10px] text-gray-500">${k.kamar} kamar</div></div><div class="text-[10px] font-bold">Rp ${(k.terisi*k.harga).toLocaleString('id-ID')}/bln</div></div>`).join('');}
+hitung();render();
+</script>
+</body></html>
