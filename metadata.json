@@ -1,0 +1,6 @@
+{
+  "name": "KOS LEGAL JABAR - Dinas Perumahan & Permukiman Jawa Barat",
+  "description": "Sistem Informasi & Legalisasi Usaha Rumah Kos Resmi Dinas Perumahan dan Permukiman Provinsi Jawa Barat.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
